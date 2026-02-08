@@ -2,11 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useLocale } from 'next-intl';
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
@@ -44,6 +46,10 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const locale = useLocale();
+
+  // Helper function to create locale-aware paths
+  const getLocalePath = (path: string) => `/${locale}${path}`;
 
   return (
     <>
@@ -87,7 +93,7 @@ export const Header = () => {
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton prefixIcon="home" href={getLocalePath("/")} selected={pathname === getLocalePath("/")} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
@@ -95,16 +101,16 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="person"
-                      href="/about"
+                      href={getLocalePath("/about")}
                       label={about.label}
-                      selected={pathname === "/about"}
+                      selected={pathname === getLocalePath("/about")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="person"
-                      href="/about"
-                      selected={pathname === "/about"}
+                      href={getLocalePath("/about")}
+                      selected={pathname === getLocalePath("/about")}
                     />
                   </Row>
                 </>
@@ -114,16 +120,16 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="grid"
-                      href="/work"
+                      href={getLocalePath("/work")}
                       label={work.label}
-                      selected={pathname.startsWith("/work")}
+                      selected={pathname.startsWith(getLocalePath("/work"))}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
+                      href={getLocalePath("/work")}
+                      selected={pathname.startsWith(getLocalePath("/work"))}
                     />
                   </Row>
                 </>
@@ -133,16 +139,16 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href="/blog"
+                      href={getLocalePath("/blog")}
                       label={blog.label}
-                      selected={pathname.startsWith("/blog")}
+                      selected={pathname.startsWith(getLocalePath("/blog"))}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
+                      href={getLocalePath("/blog")}
+                      selected={pathname.startsWith(getLocalePath("/blog"))}
                     />
                   </Row>
                 </>
@@ -152,16 +158,16 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="gallery"
-                      href="/gallery"
+                      href={getLocalePath("/gallery")}
                       label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
+                      selected={pathname.startsWith(getLocalePath("/gallery"))}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
+                      href={getLocalePath("/gallery")}
+                      selected={pathname.startsWith(getLocalePath("/gallery"))}
                     />
                   </Row>
                 </>
@@ -172,6 +178,8 @@ export const Header = () => {
                   <ThemeToggle />
                 </>
               )}
+              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              <LanguageSwitcher />
             </Row>
           </Row>
         </Row>

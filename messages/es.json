@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "work": "Trabajo",
+    "blog": "Blog",
+    "gallery": "Galería"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"
+  },
+  "home": {
+    "title": "Portafolio",
+    "description": "Sitio web de portafolio que muestra mi trabajo como Ingeniero de Diseño",
+    "headline": "Construyendo puentes entre el diseño y el código",
+    "featuredWork": "Trabajo destacado",
+    "subline": "Soy un ingeniero de diseño en ONCE UI, donde creo experiencias de usuario intuitivas. Fuera del horario laboral, construyo mis propios proyectos."
+  },
+  "about": {
+    "title": "Acerca de",
+    "introduction": "Introducción",
+    "workExperience": "Experiencia Laboral",
+    "studies": "Estudios",
+    "technicalSkills": "Habilidades técnicas",
+    "scheduleCall": "Agendar una llamada"
+  },
+  "work": {
+    "title": "Proyectos",
+    "description": "Proyectos de diseño y desarrollo"
+  },
+  "blog": {
+    "title": "Escribiendo sobre diseño y tecnología...",
+    "description": "Lee lo que he estado haciendo recientemente",
+    "recentPosts": "Publicaciones recientes",
+    "allPosts": "Todas las publicaciones",
+    "readMore": "Leer más"
+  },
+  "gallery": {
+    "title": "Galería de fotos",
+    "description": "Una colección de fotos"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "notFound": "Página no encontrada",
+    "backToHome": "Volver al inicio"
+  }
+}

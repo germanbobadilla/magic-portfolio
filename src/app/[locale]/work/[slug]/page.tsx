@@ -21,24 +21,29 @@ import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+export async function generateStaticParams(): Promise<{ locale: string; slug: string }[]> {
+  const posts = getPosts(["src", "app", "[locale]", "work", "projects"]);
+  const locales = ['en', 'es'];
+
+  return locales.flatMap((locale) =>
+    posts.map((post) => ({
+      locale,
+      slug: post.slug,
+    }))
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: Promise<{ locale: string; slug: string | string[] }>;
 }): Promise<Metadata> {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  const posts = getPosts(["src", "app", "work", "projects"]);
+  const posts = getPosts(["src", "app", "[locale]", "work", "projects"]);
   let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
@@ -55,14 +60,14 @@ export async function generateMetadata({
 export default async function Project({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: Promise<{ locale: string; slug: string | string[] }>;
 }) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
+  let post = getPosts(["src", "app", "[locale]", "work", "projects"]).find((post) => post.slug === slugPath);
 
   if (!post) {
     notFound();

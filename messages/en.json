@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "blog": "Blog",
+    "gallery": "Gallery"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "home": {
+    "title": "Portfolio",
+    "description": "Portfolio website showcasing my work as a Design Engineer",
+    "headline": "Building bridges between design and code",
+    "featuredWork": "Featured work",
+    "subline": "I'm a design engineer at ONCE UI, where I craft intuitive user experiences. After hours, I build my own projects."
+  },
+  "about": {
+    "title": "About",
+    "introduction": "Introduction",
+    "workExperience": "Work Experience",
+    "studies": "Studies",
+    "technicalSkills": "Technical skills",
+    "scheduleCall": "Schedule a call"
+  },
+  "work": {
+    "title": "Projects",
+    "description": "Design and dev projects"
+  },
+  "blog": {
+    "title": "Writing about design and tech...",
+    "description": "Read what I've been up to recently",
+    "recentPosts": "Recent posts",
+    "allPosts": "All posts",
+    "readMore": "Read more"
+  },
+  "gallery": {
+    "title": "Photo gallery",
+    "description": "A photo collection"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "notFound": "Page not found",
+    "backToHome": "Back to home"
+  }
+}
